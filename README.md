@@ -28,11 +28,6 @@ git clone https://github.com/cunhaedu/hardhat-token-manager.git
 **Install dependencies**
 
 ```
-yarn install
-```
-Or
-
-```
 npm install
 ```
 
@@ -55,12 +50,12 @@ Run the following command in order to deploy the application locally
 npx hardhat run scripts/deploy.ts
 ```
 
-If you want to deploy the application and see it work I highly recommend you to create a free account in [Infura](https://infura.io/), a Blockchain Development Suite that allow us to deploy  blockchain contracts.
+If you want to deploy the application and see it work I highly recommend you to create a free account in [Infura](https://infura.io/), a Blockchain Development Suite that allow us to deploy  blockchain contracts.<br/>
 Once you have an account you can create a project there and get your endpoint data, then, you can put it in ```.env``` file:
 
 ```
 RINKEBY_URL=https://rinkeby.infura.io/v3/<YOUR INFURA KEY>
-PRIVATE_KEY=0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1
+PRIVATE_KEY=0x<YOUR METAMASK PRIVATE KEY>
 ```
 Once you put your data in .env you can run the following command:
 
