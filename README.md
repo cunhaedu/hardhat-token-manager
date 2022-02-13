@@ -1,46 +1,70 @@
-# Advanced Sample Hardhat Project
+<p align="left">
+   <img src="public/hardhat-logo.png" width=150/>
+</p>
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+# Hardhat Token Manager
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+A simple project that simulates tokens transfer between different accounts build with [hardhat](https://hardhat.org/) framework.
 
-Try running some of the following tasks:
+# :pushpin: Table of Contents
 
-```shell
-npx hardhat accounts
+* [Features](#rocket-features)
+* [Installation](#construction_worker-installation)
+* [Deploy](#runner-deploy)
+
+# :rocket: Features
+
+* Token transfer
+* Get Balance
+
+# :construction_worker: Installation
+
+**You need to install [Node.js](https://nodejs.org/en/download/) first, then in order to clone the project via HTTPS, run this command:**
+
+```
+git clone https://github.com/cunhaedu/hardhat-token-manager.git
+```
+
+**Install dependencies**
+
+```
+yarn install
+```
+Or
+
+```
+npm install
+```
+
+Create your environment variables based on the examples of ```.env.example```
+
+```
+cp .env.example .env
+```
+
+**Compile project**
+
+```
 npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
+```
+
+# :runner: Deploy
+
+Run the following command in order to deploy the application locally
+```
 npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
 ```
 
-# Etherscan verification
+If you want to deploy the application and see it work I highly recommend you to create a free account in [Infura](https://infura.io/), a Blockchain Development Suite that allow us to deploy  blockchain contracts.
+Once you have an account you can create a project there and get your endpoint data, then, you can put it in ```.env``` file:
 
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
-
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+```
+RINKEBY_URL=https://rinkeby.infura.io/v3/<YOUR INFURA KEY>
+PRIVATE_KEY=0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1
+```
+Once you put your data in .env you can run the following command:
 
 ```shell
-hardhat run --network ropsten scripts/sample-script.ts
+npx hardhat run scripts/deploy.ts --network rinkeby
+
 ```
-
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
-
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
-```
-
-# Performance optimizations
-
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
